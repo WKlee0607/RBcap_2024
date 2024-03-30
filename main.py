@@ -1,17 +1,17 @@
-import h5py
+import cv2
 
 from create_ptcld_functions import *
 from settings import *
+from fn import *
 
-f = h5py.File(NYU_LABLED_PATH)
-#print(f.keys()) # ['#refs#', '#subsystem#', 'accelData', 'depths', 'images', 'instances', 'labels', 'names', 'namesToIds', 'rawDepthFilenames', 'rawDepths', 'rawRgbFilenames', 'sceneTypes', 'scenes']>
-#print(f['images']) # (1449, 3, 640, 480)
-#print(f["depths"].shape) # (1449, 640, 480)
 
-idx = 5
-rgb_raw = f['images'][idx] # C, W, H
-depth_raw = f['depths'][idx]
+rgb_path_list = open_txt_file(RGB_TXT) # len: 1225
+depth_path_list = open_txt_file(DEPTH_TXT) # len: 1209
+gt_path_list = open_txt_file(GT_TXT) # len: 21823
 
-rgbd=RGBD(rgb_raw, depth_raw)
-rgbd.run() # 3D representation
+idx = 0
+rgb_path = get_path(idx ,rgb_path_list, "rgb")
+depth_path = get_path(idx, depth_path_list, "")
 
+intrinsic = o3d.camera.PinholeCameraIntrinsic(img_width, img_height, fx, fy, cx, cy)
+pcd = PCD(RGBD(0, rgb_path, depth_path).run()).run()
