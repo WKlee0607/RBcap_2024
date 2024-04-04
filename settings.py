@@ -1,6 +1,5 @@
 # settings 
-# dataset download: https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download#freiburg2_pioneer_360
-# cams params: https://cvg.cit.tum.de/data/datasets/rgbd-dataset/file_formats
+NYU_LABLED_PATH = "./datas/nyu_depth_v2_labeled.mat"
 
 RGBD_DATASET_ROOT_PATH = "./datas/rgbd_dataset_freiburg2_pioneer_360/"
 # 순서대로 읽어오면 됨. 각각이 순서대로 매칭됨.
