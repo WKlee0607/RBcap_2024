@@ -3,7 +3,6 @@ import open3d as o3d
 import quaternion
 
 from settings import*
-from fn import *
 
 
 class RGBDPCD:
