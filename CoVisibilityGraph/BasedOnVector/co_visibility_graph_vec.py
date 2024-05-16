@@ -119,7 +119,7 @@ def kruskal_mst(co_visibility_graph):
     return mst
 
 
-def add_image_to_mst(mst, new_vector_id, new_vec:torch.Tensor):
+def add_vector_to_mst(mst, new_vector_id, new_vec:torch.Tensor):
     new_vector = Vec(new_vector_id, new_vec)
 
     best_edges = {}
