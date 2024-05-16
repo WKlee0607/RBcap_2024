@@ -14,7 +14,7 @@ def main_vec():
     print("existing edges" ,mst.get_edges())
 
     e = torch.FloatTensor([3,4,5,6,7,8])
-    add_image_to_mst(mst, 5, e)
+    add_vector_to_mst(mst, 5, e)
     print("new edges" , mst.get_edges())
 
 
