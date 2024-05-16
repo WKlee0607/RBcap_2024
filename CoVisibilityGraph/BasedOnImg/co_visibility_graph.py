@@ -112,7 +112,7 @@ def add_image_to_mst(mst, new_image_path):
         if common_points > 0:
             best_edges[(new_image_id, existing_image_id)] = common_points
     
-    sorted_best_edges = sorted(best_edges.items())
+    sorted_best_edges = sorted(best_edges.items(), key = lambda item: item[1], reverse=True)
 
     parent = {}
     rank = {}
